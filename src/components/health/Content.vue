@@ -23,7 +23,7 @@
             Girmiş olduğunuz vücut ağırlığınız (Kullanıcı tarafından girilmesi
             ve güncellenmesi gerekmektedir.)
           </div>
-          <div class="content__itemValue">91 kg</div>
+          <div class="content__itemValue">{{ health.weight }} kg</div>
         </div>
       </div>
       <div class="content__item">
@@ -39,7 +39,7 @@
             Girmiş olduğunuz boy uzunluğunuz (Kullanıcı tarafından girilmesi ve
             güncellenmesi gerekmektedir.)
           </div>
-          <div class="content__itemValue">185 cm</div>
+          <div class="content__itemValue">{{ health.height }} cm</div>
         </div>
       </div>
       <div class="content__item">
@@ -72,7 +72,9 @@
           <div class="content__itemDescription">
             Girmiş olduğunuz veriler hesaplanarak bulunur.
           </div>
-          <div class="content__itemValue">25</div>
+          <div class="content__itemValue">
+            {{ parseFloat(bodyMass).toFixed(1) }}
+          </div>
         </div>
       </div>
     </div>
@@ -82,6 +84,18 @@
 <script>
 export default {
   name: "Content",
+  created() {
+    this.$store.dispatch("health/getHealth");
+  },
+  methods: {},
+  computed: {
+    health() {
+      return this.$store.getters["health/getHealthData"];
+    },
+    bodyMass() {
+      return this.$store.getters["health/getBodyMassRate"];
+    },
+  },
 };
 </script>
     
