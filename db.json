@@ -1,5 +1,7 @@
 {
-    "deneme": {
-        "veri1": "deneme"
+    "healthStats": {
+        "weight": "85",
+        "height": "183",
+        "bodyFat": null
     }
 }
