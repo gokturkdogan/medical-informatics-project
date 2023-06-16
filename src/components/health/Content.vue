@@ -11,56 +11,131 @@
     </div>
     <div class="content__body">
       <div class="content__item">
-        <div class="content__itemHeader">
-          <font-awesome-icon
-            class="content__itemHeaderIcon"
-            icon="fa-solid fa-weight-scale"
-          />
-          <span class="content__itemTitle"> Ağırlığınız </span>
-        </div>
-        <div class="content__itemBody">
-          <div class="content__itemDescription">
-            Girmiş olduğunuz vücut ağırlığınız (Kullanıcı tarafından girilmesi
-            ve güncellenmesi gerekmektedir.)
+        <div
+          @click="openWeightModal()"
+          class="content__itemContent"
+          :class="{ '--activeModal': weightModal.isOpen }"
+        >
+          <div class="content__itemHeader">
+            <font-awesome-icon
+              class="content__itemHeaderIcon"
+              :class="{ '--activeContent': weightModal.isOpen }"
+              icon="fa-solid fa-weight-scale"
+            />
+            <span
+              class="content__itemTitle"
+              :class="{ '--activeContent': weightModal.isOpen }"
+            >
+              Ağırlığınız
+            </span>
           </div>
-          <div class="content__itemValue">{{ health.weight }} kg</div>
+          <div class="content__itemBody">
+            <div
+              class="content__itemDescription"
+              :class="{ '--activeContent': weightModal.isOpen }"
+            >
+              Girmiş olduğunuz vücut ağırlığınız (Kullanıcı tarafından girilmesi
+              ve güncellenmesi gerekmektedir.)
+            </div>
+            <div class="content__itemValue">{{ health.weight }} kg</div>
+          </div>
+        </div>
+        <div v-if="weightModal.isOpen" class="content__itemUpdateModal">
+          <input class="content__itemUpdateModalInput" type="number" />
+          <button class="content__itemUpdateModalButton">Güncelle</button>
+          <button
+            @click="closeWeightModal()"
+            class="content__itemUpdateModalButton"
+          >
+            Vazgeç
+          </button>
         </div>
       </div>
       <div class="content__item">
-        <div class="content__itemHeader">
-          <font-awesome-icon
-            class="content__itemHeaderIcon"
-            icon="fa-solid fa-ruler-vertical"
-          />
-          <span class="content__itemTitle"> Boyunuz </span>
-        </div>
-        <div class="content__itemBody">
-          <div class="content__itemDescription">
-            Girmiş olduğunuz boy uzunluğunuz (Kullanıcı tarafından girilmesi ve
-            güncellenmesi gerekmektedir.)
+        <div
+          @click="openHeightModal()"
+          class="content__itemContent"
+          :class="{ '--activeModal': heightModal.isOpen }"
+        >
+          <div class="content__itemHeader">
+            <font-awesome-icon
+              class="content__itemHeaderIcon"
+              :class="{ '--activeContent': heightModal.isOpen }"
+              icon="fa-solid fa-ruler-vertical"
+            />
+            <span
+              class="content__itemTitle"
+              :class="{ '--activeContent': heightModal.isOpen }"
+            >
+              Boyunuz
+            </span>
           </div>
-          <div class="content__itemValue">{{ health.height }} cm</div>
+          <div class="content__itemBody">
+            <div
+              class="content__itemDescription"
+              :class="{ '--activeContent': heightModal.isOpen }"
+            >
+              Girmiş olduğunuz boy uzunluğunuz (Kullanıcı tarafından girilmesi
+              ve güncellenmesi gerekmektedir.)
+            </div>
+            <div class="content__itemValue">{{ health.height }} cm</div>
+          </div>
+        </div>
+        <div v-if="heightModal.isOpen" class="content__itemUpdateModal">
+          <input class="content__itemUpdateModalInput" type="number" />
+          <button class="content__itemUpdateModalButton">Güncelle</button>
+          <button
+            @click="closeHeightModal()"
+            class="content__itemUpdateModalButton"
+          >
+            Vazgeç
+          </button>
         </div>
       </div>
       <div class="content__item">
-        <div class="content__itemHeader">
-          <font-awesome-icon
-            class="content__itemHeaderIcon"
-            icon="fa-solid fa-solid fa-percent"
-          />
-          <span class="content__itemTitle"> Yağ Oranınız </span>
-        </div>
-        <div class="content__itemBody">
-          <div class="content__itemDescription">
-            Girmiş olduğunuz yağ oranınız (Kullanıcı tarafından girilmesi ve
-            güncellenmesi gerekmektedir.)
+        <div
+          @click="openBodyFatModal()"
+          class="content__itemContent"
+          :class="{ '--activeModal': bodyFatModal.isOpen }"
+        >
+          <div class="content__itemHeader">
+            <font-awesome-icon
+              class="content__itemHeaderIcon"
+              :class="{ '--activeContent': bodyFatModal.isOpen }"
+              icon="fa-solid fa-solid fa-percent"
+            />
+            <span
+              class="content__itemTitle"
+              :class="{ '--activeContent': bodyFatModal.isOpen }"
+            >
+              Yağ Oranınız
+            </span>
           </div>
-          <div class="content__itemValue">15 %</div>
+          <div class="content__itemBody">
+            <div
+              class="content__itemDescription"
+              :class="{ '--activeContent': bodyFatModal.isOpen }"
+            >
+              Girmiş olduğunuz yağ oranınız (Kullanıcı tarafından girilmesi ve
+              güncellenmesi gerekmektedir.)
+            </div>
+            <div class="content__itemValue">15 %</div>
+          </div>
+        </div>
+        <div v-if="bodyFatModal.isOpen" class="content__itemUpdateModal">
+          <input class="content__itemUpdateModalInput" type="number" />
+          <button class="content__itemUpdateModalButton">Güncelle</button>
+          <button
+            @click="closeBodyFatModal()"
+            class="content__itemUpdateModalButton"
+          >
+            Vazgeç
+          </button>
         </div>
       </div>
     </div>
     <div class="content__footer">
-      <div class="content__item --footer">
+      <div class="content__itemContent --footer">
         <div class="content__itemHeader">
           <font-awesome-icon
             class="content__itemHeaderIcon"
@@ -84,10 +159,48 @@
 <script>
 export default {
   name: "Content",
+  data() {
+    return {
+      weightModal: {
+        isOpen: false,
+      },
+      heightModal: {
+        isOpen: false,
+      },
+      bodyFatModal: {
+        isOpen: false,
+      },
+    };
+  },
   created() {
     this.$store.dispatch("health/getHealth");
   },
-  methods: {},
+  methods: {
+    openWeightModal() {
+      this.weightModal.isOpen = true;
+      this.heightModal.isOpen = false;
+      this.bodyFatModal.isOpen = false;
+    },
+    closeWeightModal() {
+      this.weightModal.isOpen = false;
+    },
+    openHeightModal() {
+      this.heightModal.isOpen = true;
+      this.weightModal.isOpen = false;
+      this.bodyFatModal.isOpen = false;
+    },
+    closeHeightModal() {
+      this.heightModal.isOpen = false;
+    },
+    openBodyFatModal() {
+      this.bodyFatModal.isOpen = true;
+      this.weightModal.isOpen = false;
+      this.heightModal.isOpen = false;
+    },
+    closeBodyFatModal() {
+      this.bodyFatModal.isOpen = false;
+    },
+  },
   computed: {
     health() {
       return this.$store.getters["health/getHealthData"];
@@ -149,9 +262,17 @@ export default {
     margin-top: 100px;
   }
   &__item {
+    width: 25%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__itemContent {
     border: 1px solid #cf11da;
     border-radius: 10px;
-    width: 25%;
+    width: 100%;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -206,10 +327,52 @@ export default {
     text-align: center;
     font-size: 30px;
   }
+  &__itemUpdateModal {
+    background: #f3f3f3;
+    top: 270px;
+    height: 80px;
+    position: absolute;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  &__itemUpdateModalInput {
+    height: fit-content;
+    padding: 0;
+    width: 80px;
+    font-size: 40px;
+    border-radius: 10px;
+    margin-right: 15px;
+  }
+  &__itemUpdateModalButton {
+    height: fit-content;
+    cursor: pointer;
+    margin-left: 5px;
+    color: white;
+    background: linear-gradient(-45deg, #cf11da 0%, #3482fd 100%);
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    &:hover {
+      background: #3482fd;
+    }
+  }
   &__footer {
     margin-top: 200px;
     display: flex;
     justify-content: center;
+  }
+
+  .--activeModal {
+    background: linear-gradient(-45deg, #cf11da 0%, #3482fd 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .--activeContent {
+    color: white;
   }
 
   .--footer {
