@@ -9,14 +9,14 @@
       </h4>
       <div class="banner__buttons">
         <a class="banner__button" href="">Keşfet</a>
-        <router-link class="banner__button --secondary" to="/"
+        <router-link class="banner__button --secondary" to="/contact"
           >İletişim</router-link
         >
       </div>
     </div>
     <img
       class="banner__photo"
-      src="../../assets/images/banners/banner_1.png"
+      src="../../assets/images/banners/banner_home.png"
       alt="banner"
     />
   </div>
