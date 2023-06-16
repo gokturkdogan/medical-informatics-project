@@ -25,7 +25,7 @@
           </div>
         </div>
       </router-link>
-      <router-link to="/" class="services__item">
+      <router-link to="/health" class="services__item">
         <div class="services__itemHeader">
           <font-awesome-icon
             class="services__itemHeaderIcon"
