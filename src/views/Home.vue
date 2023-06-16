@@ -1,88 +1,19 @@
 <template>
   <div class="home">
-    <div class="home__banner">
-      <div class="home__bannerInfo">
-        <h3 class="home__bannerTitle">Medical Care Uygulamasına Hoşgeldiniz</h3>
-        <h1 class="home__bannerSubTitle">Sağlığınızı Takip Edin</h1>
-        <h4 class="home__bannerDescription">
-          Uygulamanın çeşitli fonksiyonları ile vücut sağlığınızı ve antrenman
-          programınızı takip edin
-        </h4>
-        <div class="home__bannerButtons">
-          <a class="home__bannerButton" href="">Keşfet</a>
-          <router-link class="home__bannerButton --secondary" to="/bar"
-            >İletişim</router-link
-          >
-        </div>
-      </div>
-      <img
-        class="home__bannerPhoto"
-        src="../assets/images/banners/banner_1.png"
-        alt="banner"
-      />
-    </div>
-    <div class="home__services">
-      <div class="home__servicesTitle">
-        <span class="home__serviceTitleIcon"
-          ><font-awesome-icon
-            class="home__serviceIcon"
-            icon="fa-brands fa-servicestack"
-        /></span>
-        <span class="home__servicesTitleText">Hizmetler</span>
-      </div>
-      <div class="home__serviceBody">
-        <div class="home__serviceItem">
-          <div class="home__serviceItemHeader">
-            <font-awesome-icon
-              class="home__itemHeaderIcon"
-              icon="fa-solid fa-dumbbell"
-            />
-          </div>
-          <div class="home__serviceItemContent">
-            <div class="home__serviceItemTitle">Antrenman Programı</div>
-            <div class="home__serviceItemDescription">
-              Kendinize özel antrenman programı düzenleyip takibini yapıp,
-              antrenman istatistiklerinizi takip edebilirsiniz.
-            </div>
-          </div>
-        </div>
-        <div class="home__serviceItem">
-          <div class="home__serviceItemHeader">
-            <font-awesome-icon
-              class="home__itemHeaderIcon"
-              icon="fa-solid fa-heart"
-            />
-          </div>
-          <div class="home__serviceItemContent">
-            <div class="home__serviceItemTitle">Sağlık Takibi</div>
-            <div class="home__serviceItemDescription">
-              Vücut istatistiklerinizi sisteme girerek takibini yapabilir kendinize hedefler oluşturabilirsiniz.
-            </div>
-          </div>
-        </div>
-        <div class="home__serviceItem">
-          <div class="home__serviceItemHeader">
-            <font-awesome-icon
-              class="home__itemHeaderIcon"
-              icon="fa-solid fa-dumbbell"
-            />
-          </div>
-          <div class="home__serviceItemContent">
-            <div class="home__serviceItemTitle">Antrenman Programı</div>
-            <div class="home__serviceItemDescription">
-              Kendinize özel antrenman programı düzenleyip takibini yapıp,
-              antrenman istatistiklerinizi takip edebilirsiniz.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Banner />
+    <Services />
   </div>
 </template>
 
 <script>
+import Banner from '../components/home/Banner.vue';
+import Services from '../components/home/Services.vue';
 export default {
   name: "Home",
+  components: {
+    Banner,
+    Services
+  },
 };
 </script>
 
@@ -129,6 +60,11 @@ export default {
     background: white;
     color: #cf11da;
     margin-left: 20px;
+    transition: 0.5s;
+    &:hover {
+      color: white;
+      background: linear-gradient(-45deg, #cf11da 0%, #3482fd 100%);
+    }
   }
   &__bannerPhoto {
     width: 600px;
