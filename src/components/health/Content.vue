@@ -41,8 +41,17 @@
           </div>
         </div>
         <div v-if="weightModal.isOpen" class="content__itemUpdateModal">
-          <input class="content__itemUpdateModalInput" type="number" />
-          <button class="content__itemUpdateModalButton">Güncelle</button>
+          <input
+            class="content__itemUpdateModalInput"
+            type="number"
+            v-model="health.weight"
+          />
+          <button
+            @click="updateHealth(weightModal.message)"
+            class="content__itemUpdateModalButton"
+          >
+            Güncelle
+          </button>
           <button
             @click="closeWeightModal()"
             class="content__itemUpdateModalButton"
@@ -82,8 +91,17 @@
           </div>
         </div>
         <div v-if="heightModal.isOpen" class="content__itemUpdateModal">
-          <input class="content__itemUpdateModalInput" type="number" />
-          <button class="content__itemUpdateModalButton">Güncelle</button>
+          <input
+            class="content__itemUpdateModalInput"
+            type="number"
+            v-model="health.height"
+          />
+          <button
+            @click="updateHealth(heightModal.message)"
+            class="content__itemUpdateModalButton"
+          >
+            Güncelle
+          </button>
           <button
             @click="closeHeightModal()"
             class="content__itemUpdateModalButton"
@@ -119,12 +137,21 @@
               Girmiş olduğunuz yağ oranınız (Kullanıcı tarafından girilmesi ve
               güncellenmesi gerekmektedir.)
             </div>
-            <div class="content__itemValue">15 %</div>
+            <div class="content__itemValue">{{ health.bodyFat }} %</div>
           </div>
         </div>
         <div v-if="bodyFatModal.isOpen" class="content__itemUpdateModal">
-          <input class="content__itemUpdateModalInput" type="number" />
-          <button class="content__itemUpdateModalButton">Güncelle</button>
+          <input
+            class="content__itemUpdateModalInput"
+            type="number"
+            v-model="health.bodyFat"
+          />
+          <button
+            @click="updateHealth(bodyFatModal.message)"
+            class="content__itemUpdateModalButton"
+          >
+            Güncelle
+          </button>
           <button
             @click="closeBodyFatModal()"
             class="content__itemUpdateModalButton"
@@ -163,12 +190,15 @@ export default {
     return {
       weightModal: {
         isOpen: false,
+        message: "Kilonuz başarı ile güncellenmiştir",
       },
       heightModal: {
         isOpen: false,
+        message: "Boyunuz başarı ile güncellenmiştir",
       },
       bodyFatModal: {
         isOpen: false,
+        message: "Yağ oranınız başarı ile güncellenmiştir",
       },
     };
   },
@@ -183,6 +213,7 @@ export default {
     },
     closeWeightModal() {
       this.weightModal.isOpen = false;
+      this.$store.dispatch("health/getHealth");
     },
     openHeightModal() {
       this.heightModal.isOpen = true;
@@ -191,6 +222,7 @@ export default {
     },
     closeHeightModal() {
       this.heightModal.isOpen = false;
+      this.$store.dispatch("health/getHealth");
     },
     openBodyFatModal() {
       this.bodyFatModal.isOpen = true;
@@ -199,6 +231,14 @@ export default {
     },
     closeBodyFatModal() {
       this.bodyFatModal.isOpen = false;
+      this.$store.dispatch("health/getHealth");
+    },
+    async updateHealth(message) {
+      await this.$store.dispatch("health/updateHealth");
+      await this.$store.dispatch("global/openNotify", message);
+      this.closeWeightModal();
+      this.closeHeightModal();
+      this.closeBodyFatModal();
     },
   },
   computed: {
@@ -361,7 +401,7 @@ export default {
     }
   }
   &__footer {
-    margin-top: 200px;
+    margin-top: 120px;
     display: flex;
     justify-content: center;
   }

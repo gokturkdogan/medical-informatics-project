@@ -1,6 +1,6 @@
 import Services from '../../config/_axios';
 import API from '../../api/index';
-const cart = {
+const health = {
 
     state: () => ({
         health: {},
@@ -34,6 +34,15 @@ const cart = {
                 alert(err)
             });
         },
+        async updateHealth({ state, dispatch }) {
+            await Services.put(API.Health, state.health).then((res) => {
+                if (res.data) {
+                    dispatch('getHealth');
+                }
+            }).catch((err) => {
+                alert(err)
+            });
+        },
     },
 
     getters: {
@@ -44,4 +53,4 @@ const cart = {
     namespaced: true
 }
 
-export default cart;
+export default health;
