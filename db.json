@@ -1,7 +1,7 @@
 {
-    "healthStats": {
-        "weight": "85",
-        "height": "183",
-        "bodyFat": null
-    }
+  "healthStats": {
+    "weight": 89,
+    "height": 122,
+    "bodyFat": "14"
+  }
 }
