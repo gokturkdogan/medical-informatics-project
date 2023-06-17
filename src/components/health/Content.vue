@@ -162,7 +162,16 @@
       </div>
     </div>
     <div class="content__footer">
-      <div class="content__itemContent --footer">
+      <div
+        class="content__itemContent --bodyMass"
+        :class="{
+          '--underWeight': underWeight.stat,
+          '--normal': normal.stat,
+          '--overWeight': overWeight.stat,
+          '--obese': obese.stat,
+          '--extremlyObese': extremlyObese.stat,
+        }"
+      >
         <div class="content__itemHeader">
           <font-awesome-icon
             class="content__itemHeaderIcon"
@@ -173,6 +182,21 @@
         <div class="content__itemBody">
           <div class="content__itemDescription">
             Girmiş olduğunuz veriler hesaplanarak bulunur.
+          </div>
+          <div v-if="underWeight.stat" class="content__message">
+            {{ underWeight.message }}
+          </div>
+          <div v-if="normal.stat" class="content__message">
+            {{ normal.message }}
+          </div>
+          <div v-if="overWeight.stat" class="content__message">
+            {{ overWeight.message }}
+          </div>
+          <div v-if="obese.stat" class="content__message">
+            {{ obese.message }}
+          </div>
+          <div v-if="extremlyObese.stat" class="content__message">
+            {{ extremlyObese.message }}
           </div>
           <div class="content__itemValue">
             {{ parseFloat(bodyMass).toFixed(1) }}
@@ -247,6 +271,38 @@ export default {
     },
     bodyMass() {
       return this.$store.getters["health/getBodyMassRate"];
+    },
+    underWeight() {
+      return {
+        stat: this.bodyMass < 18.5,
+        message: "Kilo almanız tavsiye edilir",
+      };
+    },
+    normal() {
+      return {
+        stat: this.bodyMass > 18.5 && this.bodyMass < 24.9,
+        message: "Sağlıklı bir kilodasınız",
+      };
+    },
+    overWeight() {
+      return {
+        stat: this.bodyMass > 25 && this.bodyMass < 29.9,
+        message: "Sınırların üzerindesiniz kilo vermeniz tavsiye edilir",
+      };
+    },
+    obese() {
+      return {
+        stat: this.bodyMass > 30 && this.bodyMass < 34.9,
+        message:
+          "Verilere göre obezite sınırları içerisindesiniz kilo vermeniz tavsiye edilir",
+      };
+    },
+    extremlyObese() {
+      return {
+        stat: this.bodyMass > 35,
+        message:
+          "Sınırların çok üzerindesiniz aciliyetle kilo vermeniz gerekmektedir.",
+      };
     },
   },
 };
@@ -362,6 +418,13 @@ export default {
     margin: 0;
     color: #888;
   }
+  &__message {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-top: 10px;
+    color: #201f1f;
+  }
   &__itemValue {
     margin-top: 20px;
     text-align: center;
@@ -415,8 +478,24 @@ export default {
     color: white;
   }
 
-  .--footer {
+  .--bodyMass {
     width: 50%;
+  }
+
+  .--underWeight {
+    border: 5px solid blue;
+  }
+  .--normal {
+    border: 5px solid rgb(19, 210, 19);
+  }
+  .--overWeight {
+    border: 5px solid yellow;
+  }
+  .--obese {
+    border: 5px solid orange;
+  }
+  .--extremlyObese {
+    border: 5px solid red;
   }
 }
 </style>
