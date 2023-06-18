@@ -1,7 +1,27 @@
 {
   "healthStats": {
-    "weight": 86,
+    "weight": 85,
     "height": 185,
     "bodyFat": 17
-  }
+  },
+  "trainings": [
+    {
+      "type": "Koşu",
+      "location": "Açık Hava",
+      "date": "2023-04-19",
+      "time": "00:54",
+      "calories": "300",
+      "duration": "2",
+      "id": 1
+    },
+    {
+      "type": "Yüzme",
+      "location": "Kapalı Ortam",
+      "date": "2023-03-28",
+      "time": "00:30",
+      "calories": "800",
+      "duration": "2",
+      "id": 2
+    }
+  ]
 }

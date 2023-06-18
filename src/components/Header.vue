@@ -9,7 +9,7 @@
         <div class="header__navigation">
             <router-link class="header__link" to="/">Anasayfa</router-link>
             <router-link class="header__link" to="/health">Sağlık</router-link>
-            <router-link class="header__link" to="/">Antrenman</router-link>
+            <router-link class="header__link" to="/training">Antrenman</router-link>
             <router-link class="header__link" to="/">Diyet</router-link>
         </div>
     </div>
