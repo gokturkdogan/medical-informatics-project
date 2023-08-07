@@ -1,88 +1,100 @@
 <template>
   <div class="training">
-    <div class="training__content">
-      <div v-for="data in trainings.slice(-1)"
-        :key="data" class="training__image">
-        <img
-          v-if="data.type == 'Ağırlık'"
-          class="training__photo"
-          src="../../assets/images/trainings/weight-training.jpg"
-          alt="Training"
-        />
-        <img
-          v-if="data.type == 'Koşu'"
-          class="training__photo"
-          src="../../assets/images/trainings/running-training.png"
-          alt="Training"
-        />
-        <img
-          v-if="data.type == 'Yüzme'"
-          class="training__photo"
-          src="../../assets/images/trainings/swimming-training.jpg"
-          alt="Training"
-        />
-      </div>
-      <div class="training__details">
-        <h4 class="training__title">Yüzme Antrenmanı</h4>
-        <p class="training__description">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt labore et dolore magna aliqua. enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea commodo consequat. Duis aute irure dolor in reprehenderit in
-          voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-          sint occaecat cupidatat non proident, sunt in culpa qui officia
-          deserunt mollit anim.
-        </p>
-      </div>
+    <div class="training__header">
+      <h3>Son Antrenmanınız</h3>
     </div>
-    <div class="training__side">
-      <div
-        v-for="data in trainings.slice(-1)"
-        :key="data"
-        class="training__sideBar"
-      >
-        <div class="training__sideBarHeader">Antrenman Bilgileri</div>
-        <div class="training__sideBarBody">
-          <div class="training__sideBarItem">
-            <span class="training__sideBarLabel">Antrenman Türü:</span>
-            <span class="training__sideBarValue">{{ data.type }}</span>
-          </div>
-          <div class="training__sideBarItem">
-            <span class="training__sideBarLabel">Antrenman Yeri:</span>
-            <span class="training__sideBarValue">{{ data.location }}</span>
-          </div>
-          <div class="training__sideBarItem">
-            <span class="training__sideBarLabel">Antrenman Tarih:</span>
-            <span class="training__sideBarValue">{{ data.date }}</span>
-          </div>
-          <div class="training__sideBarItem">
-            <span class="training__sideBarLabel">Antrenman Saati:</span>
-            <span class="training__sideBarValue">{{ data.time }}</span>
-          </div>
+    <div class="training__page">
+      <div class="training__content">
+        <div
+          v-for="data in trainings.slice(-1)"
+          :key="data"
+          class="training__image"
+        >
+          <img
+            v-if="data.type == 'Ağırlık'"
+            class="training__photo"
+            src="../../assets/images/trainings/weight-training.jpg"
+            alt="Training"
+          />
+          <img
+            v-if="data.type == 'Koşu'"
+            class="training__photo"
+            src="../../assets/images/trainings/running-training.png"
+            alt="Training"
+          />
+          <img
+            v-if="data.type == 'Yüzme'"
+            class="training__photo"
+            src="../../assets/images/trainings/swimming-training.jpg"
+            alt="Training"
+          />
+        </div>
+        <div class="training__details">
+          <h4 class="training__title">Yüzme Antrenmanı</h4>
+          <p class="training__description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt labore et dolore magna aliqua. enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim.
+          </p>
         </div>
       </div>
-      <div
-        v-for="data in trainings.slice(-1)"
-        :key="data"
-        class="training__sideBar"
-      >
-        <div class="training__sideBarHeader">Antrenman İstatistikleri</div>
-        <div class="training__sideBarBody">
-          <div class="training__sideBarItem">
-            <span class="training__sideBarLabel">Yakılan Kalori:</span>
-            <span class="training__sideBarValue">{{ data.calories }} Kcal</span>
-          </div>
-          <div class="training__sideBarItem">
-            <span class="training__sideBarLabel">Antrenman Süresi:</span>
-            <span class="training__sideBarValue">{{ data.duration }} saat</span>
-          </div>
-          <div class="training__sideBarItem">
-            <span class="training__sideBarLabel">Antrenman Statüsü:</span>
-            <span class="training__sideBarValue">Isınma</span>
+      <div class="training__side">
+        <div
+          v-for="data in trainings.slice(-1)"
+          :key="data"
+          class="training__sideBar"
+        >
+          <div class="training__sideBarHeader">Antrenman Bilgileri</div>
+          <div class="training__sideBarBody">
+            <div class="training__sideBarItem">
+              <span class="training__sideBarLabel">Antrenman Türü:</span>
+              <span class="training__sideBarValue">{{ data.type }}</span>
+            </div>
+            <div class="training__sideBarItem">
+              <span class="training__sideBarLabel">Antrenman Yeri:</span>
+              <span class="training__sideBarValue">{{ data.location }}</span>
+            </div>
+            <div class="training__sideBarItem">
+              <span class="training__sideBarLabel">Antrenman Tarih:</span>
+              <span class="training__sideBarValue">{{ data.date }}</span>
+            </div>
+            <div class="training__sideBarItem">
+              <span class="training__sideBarLabel">Antrenman Saati:</span>
+              <span class="training__sideBarValue">{{ data.time }}</span>
+            </div>
           </div>
         </div>
+        <div
+          v-for="data in trainings.slice(-1)"
+          :key="data"
+          class="training__sideBar"
+        >
+          <div class="training__sideBarHeader">Antrenman İstatistikleri</div>
+          <div class="training__sideBarBody">
+            <div class="training__sideBarItem">
+              <span class="training__sideBarLabel">Yakılan Kalori:</span>
+              <span class="training__sideBarValue"
+                >{{ data.calories }} Kcal</span
+              >
+            </div>
+            <div class="training__sideBarItem">
+              <span class="training__sideBarLabel">Antrenman Süresi:</span>
+              <span class="training__sideBarValue"
+                >{{ data.duration }} saat</span
+              >
+            </div>
+            <div class="training__sideBarItem">
+              <span class="training__sideBarLabel">Antrenman Statüsü:</span>
+              <span class="training__sideBarValue">Isınma</span>
+            </div>
+          </div>
+        </div>
+        <button class="training__addBtn">Antrenman Ekle</button>
       </div>
-      <button class="training__addBtn">Antrenman Ekle</button>
     </div>
   </div>
 </template>
@@ -90,9 +102,9 @@
 <script>
 export default {
   name: "LastTraining",
-  props: {
-    trainings: {
-      type: Array,
+  computed: {
+    trainings() {
+      return this.$store.getters["training/getTrainingData"];
     },
   },
 };
@@ -100,9 +112,18 @@ export default {
       
 <style lang="scss" scoped>
 .training {
-  display: flex;
-  justify-content: space-between;
   padding: 100px 200px;
+
+  &__header {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+
+  &__page {
+    display: flex;
+    justify-content: space-between;
+  }
 
   &__content {
     width: 65%;

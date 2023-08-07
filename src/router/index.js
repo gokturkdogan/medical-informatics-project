@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Contact from '../views/Contact.vue'
 import Health from '../views/Health.vue'
 import Training from '../views/Training.vue'
+import TrainingList from '../views/Training-List.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_BASE_URL),
@@ -21,6 +22,11 @@ const router = createRouter({
       path: '/training',
       name: 'training',
       component: Training
+    },
+    {
+      path: '/training-list',
+      name: 'traininglist',
+      component: TrainingList
     },
     {
       path: '/contact',
