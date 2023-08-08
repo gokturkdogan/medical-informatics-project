@@ -5,9 +5,9 @@ import './assets/scss/main.scss'
 import router from "./router"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faDumbbell, faEnvelope, faHouse, faHeart, faBriefcaseMedical, faWeightScale, faRulerVertical, faPercent, faCirclePlus, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+import { faDumbbell, faEnvelope, faHouse, faHeart, faBriefcaseMedical, faWeightScale, faRulerVertical, faPercent, faCirclePlus, faCircleCheck, faClock, faCalendar, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faServicestack, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
-library.add(faHouse, faServicestack, faDumbbell, faHeart, faLinkedin, faEnvelope, faGithub, faBriefcaseMedical, faWeightScale, faRulerVertical, faPercent, faCirclePlus, faCircleCheck)
+library.add(faHouse, faServicestack, faDumbbell, faHeart, faLinkedin, faEnvelope, faGithub, faBriefcaseMedical, faWeightScale, faRulerVertical, faPercent, faCirclePlus, faCircleCheck, faClock, faCalendar, faLocationDot)
 
 createApp(App).
   use(router).
