@@ -10,7 +10,7 @@
       <span class="services__titleText">Hizmetler</span>
     </div>
     <div class="services__body">
-      <router-link to="/" class="services__item">
+      <router-link to="/training-list" class="services__item">
         <div class="services__itemHeader">
           <font-awesome-icon
             class="services__itemHeaderIcon"
