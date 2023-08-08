@@ -8,52 +8,94 @@
         <div class="addTraining__body">
           <div class="addTraining__line">
             <span class="addTraining__label">Antrenman Türü:</span>
-            <select name="" id="">
-              <option value="">Koşu</option>
+            <select v-model="newTraining.type">
+              <option disabled>Lütfen Seçiniz</option>
+              <option
+                v-for="value in trainingTypes"
+                :value="value.val"
+                :key="value.val"
+              >
+                {{ value.val }}
+              </option>
             </select>
           </div>
           <div class="addTraining__line">
             <span class="addTraining__label">Konum:</span>
-            <select name="" id="">
-              <option value="">Açık Hava</option>
+            <select v-model="newTraining.location">
+              <option disabled>Lütfen Seçiniz</option>
+              <option
+                class="modal__option"
+                v-for="value in trainingLocations"
+                :value="value.val"
+                :key="value.val"
+              >
+                {{ value.val }}
+              </option>
             </select>
           </div>
           <div class="addTraining__line">
             <span class="addTraining__label">Tarih:</span>
-            <input type="date" />
+            <input v-model="newTraining.date" type="date" />
           </div>
           <div class="addTraining__line">
             <span class="addTraining__label">Saat:</span>
-            <input type="time" />
+            <input v-model="newTraining.time" type="time" />
           </div>
           <div class="addTraining__line">
             <span class="addTraining__label">Yakılan Kalori:</span>
-            <input type="number" />
+            <input v-model="newTraining.calories" type="number" />
           </div>
           <div class="addTraining__line">
             <span class="addTraining__label">Süre:</span>
-            <input type="number" />
+            <input v-model="newTraining.duration" type="number" />
           </div>
         </div>
         <div class="addTraining__footer">
-          <button>Kaydet</button>
+          <button type="button" @click="addTraining()">Kaydet</button>
           <button @click="closeModal">Vazgeç</button>
         </div>
       </div>
     </div>
   </div>
 </template>
+  
   <script>
 export default {
   name: "AddTrainings",
+  data() {
+    return {
+      newTraining: {
+        type: "",
+        location: "",
+        date: "",
+        time: "",
+        calories: "",
+        duration: "",
+      },
+    };
+  },
   methods: {
     closeModal() {
       this.$emit("close-modal");
-    }
-  }
+    },
+    addTraining() {
+      const copiedTraining = { ...this.newTraining };
+      this.$store.dispatch("training/postTrainings", copiedTraining);
+      this.closeModal();
+    },
+  },
+  computed: {
+    trainingTypes() {
+      return this.$store.getters["training/getTrainingTypes"];
+    },
+    trainingLocations() {
+      return this.$store.getters["training/getTrainingLocations"];
+    },
+  },
 };
 </script>
-<style lang="scss" scoped>
+  
+  <style lang="scss" scoped>
 .addTraining {
   position: fixed;
   height: 100vh;
