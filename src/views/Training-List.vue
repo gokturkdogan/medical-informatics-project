@@ -13,6 +13,9 @@ export default {
   components: {
     Banner,
     List
-  }
+  },
+  created() {
+    this.$store.dispatch("training/fetchTrainings");
+  },
 };
 </script>

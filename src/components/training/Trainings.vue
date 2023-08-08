@@ -1,109 +1,40 @@
 <template>
   <div class="trainings">
-    <div class="trainings__item">
+    <div v-for="data in trainings" :key="data" class="trainings__item">
       <img
-        src="../../assets//images//trainings/swimming-training.jpg"
+        v-if="data.type == 'Koşu'"
+        src="../../assets/images/trainings/running-training.png"
+        alt="Training"
+        class="trainings__image"
+      />
+      <img
+        v-if="data.type == 'Yüzme'"
+        src="../../assets/images/trainings/swimming-training.jpg"
+        alt="Training"
+        class="trainings__image"
+      />
+      <img
+        v-if="data.type == 'Ağırlık'"
+        src="../../assets/images/trainings/weight-training.jpg"
         alt="Training"
         class="trainings__image"
       />
       <div class="trainings__content">
-        <h3 class="trainings__title">Yüzme Antrenmanı</h3>
+        <h3 class="trainings__title">{{ data.type }} Antrenmanı</h3>
         <div class="trainings__header">
           <div class="trainings__desc">
-            <font-awesome-icon icon="fa-solid fa-clock" />
-            <span class="trainings__value">12:35</span>
+            <font-awesome-icon class="trainings__icon" icon="fa-solid fa-clock" />
+            <span class="trainings__value">{{ data.time }}</span>
           </div>
           <div class="trainings__desc">
-            <font-awesome-icon icon="fa-solid fa-calendar" />
-            <span class="trainings__value">12/23/1998</span>
+            <font-awesome-icon class="trainings__icon" icon="fa-solid fa-calendar" />
+            <span class="trainings__value">{{
+              data.date.split("-").reverse().join("-")
+            }}</span>
           </div>
           <div class="trainings__desc">
-            <font-awesome-icon icon="fa-solid fa-location-dot" />
-            <span class="trainings__value">Kapalı Ortam</span>
-          </div>
-        </div>
-        <div class="trainings__exp">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et
-        </div>
-      </div>
-    </div>
-    <div class="trainings__item">
-      <img
-        src="../../assets//images//trainings/swimming-training.jpg"
-        alt="Training"
-        class="trainings__image"
-      />
-      <div class="trainings__content">
-        <h3 class="trainings__title">Yüzme Antrenmanı</h3>
-        <div class="trainings__header">
-          <div class="trainings__desc">
-            <font-awesome-icon icon="fa-solid fa-clock" />
-            <span class="trainings__value">12:35</span>
-          </div>
-          <div class="trainings__desc">
-            <font-awesome-icon icon="fa-solid fa-calendar" />
-            <span class="trainings__value">12/23/1998</span>
-          </div>
-          <div class="trainings__desc">
-            <font-awesome-icon icon="fa-solid fa-location-dot" />
-            <span class="trainings__value">Kapalı Ortam</span>
-          </div>
-        </div>
-        <div class="trainings__exp">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et
-        </div>
-      </div>
-    </div>
-    <div class="trainings__item">
-      <img
-        src="../../assets//images//trainings/swimming-training.jpg"
-        alt="Training"
-        class="trainings__image"
-      />
-      <div class="trainings__content">
-        <h3 class="trainings__title">Yüzme Antrenmanı</h3>
-        <div class="trainings__header">
-          <div class="trainings__desc">
-            <font-awesome-icon icon="fa-solid fa-clock" />
-            <span class="trainings__value">12:35</span>
-          </div>
-          <div class="trainings__desc">
-            <font-awesome-icon icon="fa-solid fa-calendar" />
-            <span class="trainings__value">12/23/1998</span>
-          </div>
-          <div class="trainings__desc">
-            <font-awesome-icon icon="fa-solid fa-location-dot" />
-            <span class="trainings__value">Kapalı Ortam</span>
-          </div>
-        </div>
-        <div class="trainings__exp">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et
-        </div>
-      </div>
-    </div>
-    <div class="trainings__item">
-      <img
-        src="../../assets//images//trainings/swimming-training.jpg"
-        alt="Training"
-        class="trainings__image"
-      />
-      <div class="trainings__content">
-        <h3 class="trainings__title">Yüzme Antrenmanı</h3>
-        <div class="trainings__header">
-          <div class="trainings__desc">
-            <font-awesome-icon icon="fa-solid fa-clock" />
-            <span class="trainings__value">12:35</span>
-          </div>
-          <div class="trainings__desc">
-            <font-awesome-icon icon="fa-solid fa-calendar" />
-            <span class="trainings__value">12/23/1998</span>
-          </div>
-          <div class="trainings__desc">
-            <font-awesome-icon icon="fa-solid fa-location-dot" />
-            <span class="trainings__value">Kapalı Ortam</span>
+            <font-awesome-icon class="trainings__icon" icon="fa-solid fa-location-dot" />
+            <span class="trainings__value">{{ data.location }}</span>
           </div>
         </div>
         <div class="trainings__exp">
@@ -117,6 +48,11 @@
 <script>
 export default {
   name: "Trainings",
+  computed: {
+    trainings() {
+      return this.$store.getters["training/getTrainingData"];
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -137,6 +73,7 @@ export default {
 
   &__image {
     width: 100%;
+    height: 200px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
   }
@@ -159,12 +96,22 @@ export default {
     margin-top: 20px;
   }
 
+  &__icon {
+    color: #7b6cd5;
+  }
+
   &__value {
     margin-left: 5px;
+    font-size: 14px;
+    color: #888;
+    letter-spacing: .4px;
   }
 
   &__exp {
     margin-top: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #888;
   }
 }
 </style>
