@@ -1,9 +1,9 @@
 <template>
   <div class="training">
     <Banner />
-    <LastTraining/>
+    <LastTraining @open-modal="openModal"/>
     <List />
-    <AddModal />
+    <AddModal v-if="isModalOpen" @close-modal="closeModal"/>
   </div>
 </template>
   
@@ -14,11 +14,32 @@ import List from "../components/training/List.vue";
 import AddModal from "../components/training/AddTrainings.vue";
 export default {
   name: "Training",
+  data() {
+    return {
+      isModalOpen: false
+    }
+  },
+  methods: {
+    openModal() {
+      this.isModalOpen = true;
+    },
+    closeModal() {
+      this.isModalOpen = false;
+    }
+  },  
   components: {
     Banner,
     LastTraining,
     List,
     AddModal
+  },
+  methods: {
+    openModal() {
+      this.isModalOpen = true;
+    },
+    closeModal() {
+      this.isModalOpen = false;
+    }
   },
   created() {
     this.$store.dispatch("training/fetchTrainings");

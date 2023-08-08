@@ -93,7 +93,7 @@
             </div>
           </div>
         </div>
-        <button class="training__addBtn">Antrenman Ekle</button>
+        <button class="training__addBtn" @click="openModal">Antrenman Ekle</button>
       </div>
     </div>
   </div>
@@ -102,6 +102,11 @@
 <script>
 export default {
   name: "LastTraining",
+  methods: {
+    openModal() {
+      this.$emit("open-modal");
+    }
+  },
   computed: {
     trainings() {
       return this.$store.getters["training/getTrainingData"];

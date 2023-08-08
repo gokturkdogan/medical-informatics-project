@@ -37,7 +37,7 @@
         </div>
         <div class="addTraining__footer">
           <button>Kaydet</button>
-          <button>Vazgeç</button>
+          <button @click="closeModal">Vazgeç</button>
         </div>
       </div>
     </div>
@@ -46,6 +46,11 @@
   <script>
 export default {
   name: "AddTrainings",
+  methods: {
+    closeModal() {
+      this.$emit("close-modal");
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
