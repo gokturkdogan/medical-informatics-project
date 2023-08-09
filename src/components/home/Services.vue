@@ -7,7 +7,7 @@
           icon="fa-brands fa-servicestack"
         />
       </span>
-      <span class="services__titleText">Hizmetler</span>
+      <span class="services__titleText">{{ $t("home.services.title") }}</span>
     </div>
     <div class="services__body">
       <router-link to="/training-list" class="services__item">
@@ -18,10 +18,9 @@
           />
         </div>
         <div class="services__itemContent">
-          <div class="services__itemTitle">Antrenman Programı</div>
+          <div class="services__itemTitle">{{ $t("home.services.training.title") }}</div>
           <div class="services__itemDescription">
-            Kendinize özel antrenman programı düzenleyip takibini yapıp,
-            antrenman istatistiklerinizi takip edebilirsiniz.
+            {{ $t("home.services.training.text") }}
           </div>
         </div>
       </router-link>
@@ -33,10 +32,9 @@
           />
         </div>
         <div class="services__itemContent">
-          <div class="services__itemTitle">Sağlık Takibi</div>
+          <div class="services__itemTitle">{{ $t("home.services.health.title") }}</div>
           <div class="services__itemDescription">
-            Vücut istatistiklerinizi sisteme girerek takibini yapabilir
-            kendinize hedefler oluşturabilirsiniz.
+            {{ $t("home.services.health.text") }}
           </div>
         </div>
       </router-link>
@@ -48,10 +46,9 @@
           />
         </div>
         <div class="services__itemContent">
-          <div class="services__itemTitle">Diyet Takibi</div>
+          <div class="services__itemTitle">{{ $t("home.services.diet.title") }}</div>
           <div class="services__itemDescription">
-            Hazırlamış olduğunuz diyet programına uyumunuzu ilgili ekranlar
-            sayesinde takip edebilirsiniz.
+            {{ $t("home.services.diet.text") }}
           </div>
         </div>
       </router-link>

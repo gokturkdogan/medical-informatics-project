@@ -32,5 +32,73 @@
       "duration": 3,
       "id": 3
     }
-  ]
+  ],
+  "trJson": {
+    "navBar": {
+      "home": "anasayfa",
+      "health": "sağlık",
+      "training": "antrenman",
+      "diet": "diyet"
+    },
+    "home": {
+      "banner": {
+        "title": "Sağlığınızı Takip Edin",
+        "subTitle": "Medical Care Uygulamasına Hoşgeldiniz",
+        "text": "Uygulamanın çeşitli fonksiyonları ile vücut sağlığınızı ve antrenman programınızı takip edin"
+      },
+      "services": {
+        "title": "Hizmetler",
+        "training": {
+          "title": "Antrenman Programı",
+          "text": "Kendinize özel antrenman programı düzenleyip takibini yapıp, antrenman istatistiklerinizi takip edebilirsiniz."
+        },
+        "health": {
+          "title": "Sağlık Takibi",
+          "text": "Vücut istatistiklerinizi sisteme girerek takibini yapabilir kendinize hedefler oluşturabilirsiniz."
+        },
+        "diet": {
+          "title": "Diyet Takibi",
+          "text": "Hazırlamış olduğunuz diyet programına uyumunuzu ilgili ekranlar sayesinde takip edebilirsiniz."
+        }
+      }
+    },
+    "buttons": {
+      "discover": "Keşfet",
+      "contact": "İletişim"
+    }
+  },
+  "enJson": {
+    "navBar": {
+      "home": "home",
+      "health": "health",
+      "training": "training",
+      "diet": "diet"
+    },
+    "home": {
+      "banner": {
+        "title": "Track Your Health",
+        "subTitle": "Welcome to the Medical Care Application",
+        "text": "Keep track of your body health and training program with the various functions of the app."
+      },
+      "services": {
+        "title": "Services",
+        "training": {
+          "title": "Training Program",
+          "text": "You can organize and follow your own training program and follow your training statistics."
+        },
+        "health": {
+          "title": "Health Tracker",
+          "text": "You can track your body statistics by entering the system and create goals for yourself."
+        },
+        "diet": {
+          "title": "Diet Tracking",
+          "text": "You can monitor your compliance with the diet program you have prepared, thanks to the relevant screens."
+        }
+      }
+    },
+    "buttons": {
+      "discover": "Discover",
+      "contact": "Contact"
+    }
+  }
 }
