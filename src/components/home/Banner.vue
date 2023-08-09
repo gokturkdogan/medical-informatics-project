@@ -1,16 +1,15 @@
 <template>
   <div class="banner">
     <div class="banner__info">
-      <h3 class="banner__title">Medical Care Uygulamasına Hoşgeldiniz</h3>
-      <h1 class="banner__subTitle">Sağlığınızı Takip Edin</h1>
+      <h3 class="banner__title">{{ $t("home.banner.subTitle") }}</h3>
+      <h1 class="banner__subTitle">{{ $t("home.banner.title") }}</h1>
       <h4 class="banner__description">
-        Uygulamanın çeşitli fonksiyonları ile vücut sağlığınızı ve antrenman
-        programınızı takip edin
+        {{ $t("home.banner.text") }}
       </h4>
       <div class="banner__buttons">
-        <a class="banner__button" href="">Keşfet</a>
+        <a class="banner__button" href="">{{ $t("buttons.discover") }}</a>
         <router-link class="banner__button --secondary" to="/contact"
-          >İletişim</router-link
+          >{{ $t("buttons.contact") }}</router-link
         >
       </div>
     </div>
