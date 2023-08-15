@@ -6,6 +6,7 @@
                 Health Master
             </span>
         </div>
+        <LocaleSwitcher />
         <div class="header__navigation">
             <router-link class="header__link" to="/">{{ $t("navBar.home") }}</router-link>
             <router-link class="header__link" to="/health">{{ $t("navBar.health") }}</router-link>
@@ -15,8 +16,12 @@
     </div>
 </template>
 <script>
+import LocaleSwitcher from '../components/base/LocaleSwitcher.vue';
     export default {
-        name: "Header"
+        name: "Header",
+        components: {
+            LocaleSwitcher
+        }
     }
 </script>
 <style lang="scss" scoped>
