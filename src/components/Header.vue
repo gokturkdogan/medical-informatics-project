@@ -12,11 +12,16 @@
             <router-link class="header__link" to="/training">{{ $t("navBar.training") }}</router-link>
             <router-link class="header__link" to="/">{{ $t("navBar.diet") }}</router-link>
         </div>
+        <LocaleSwitcher />
     </div>
 </template>
 <script>
+import LocaleSwitcher from '../components/base/LocaleSwitcher.vue';
     export default {
-        name: "Header"
+        name: "Header",
+        components: {
+            LocaleSwitcher
+        }
     }
 </script>
 <style lang="scss" scoped>
