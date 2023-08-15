@@ -18,3 +18,12 @@ const handleChangeLocale = (event) => {
     </option>
   </select>
 </template>
+<style lang="scss" scoped>
+  select {
+    padding: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    border: 2px solid #B822DF;
+    border-radius: 10px;
+  }
+</style>

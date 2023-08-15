@@ -6,13 +6,13 @@
                 Health Master
             </span>
         </div>
-        <LocaleSwitcher />
         <div class="header__navigation">
             <router-link class="header__link" to="/">{{ $t("navBar.home") }}</router-link>
             <router-link class="header__link" to="/health">{{ $t("navBar.health") }}</router-link>
             <router-link class="header__link" to="/training">{{ $t("navBar.training") }}</router-link>
             <router-link class="header__link" to="/">{{ $t("navBar.diet") }}</router-link>
         </div>
+        <LocaleSwitcher />
     </div>
 </template>
 <script>
