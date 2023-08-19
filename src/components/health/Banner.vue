@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <div class="banner__title">Sağlığınızı Takip Edin</div>
+    <div class="banner__title">{{ $t('health.banner') }}</div>
   </div>
 </template>
     
