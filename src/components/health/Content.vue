@@ -7,7 +7,7 @@
           icon="fa-solid fa-briefcase-medical"
         />
       </span>
-      <span class="content__titleText">Verileriniz</span>
+      <span class="content__titleText">{{ $t('health.title') }}</span>
     </div>
     <div class="content__body">
       <div class="content__item">
@@ -26,7 +26,7 @@
               class="content__itemTitle"
               :class="{ '--activeContent': weightModal.isOpen }"
             >
-              Ağırlığınız
+            {{ $t('health.weight.title') }}
             </span>
           </div>
           <div class="content__itemBody">
@@ -34,8 +34,7 @@
               class="content__itemDescription"
               :class="{ '--activeContent': weightModal.isOpen }"
             >
-              Girmiş olduğunuz vücut ağırlığınız (Kullanıcı tarafından girilmesi
-              ve güncellenmesi gerekmektedir.)
+            {{ $t('health.weight.text') }}
             </div>
             <div class="content__itemValue">{{ health.weight }} kg</div>
           </div>
@@ -76,7 +75,7 @@
               class="content__itemTitle"
               :class="{ '--activeContent': heightModal.isOpen }"
             >
-              Boyunuz
+            {{ $t('health.height.title') }}
             </span>
           </div>
           <div class="content__itemBody">
@@ -84,8 +83,7 @@
               class="content__itemDescription"
               :class="{ '--activeContent': heightModal.isOpen }"
             >
-              Girmiş olduğunuz boy uzunluğunuz (Kullanıcı tarafından girilmesi
-              ve güncellenmesi gerekmektedir.)
+            {{ $t('health.height.text') }}
             </div>
             <div class="content__itemValue">{{ health.height }} cm</div>
           </div>
@@ -126,7 +124,7 @@
               class="content__itemTitle"
               :class="{ '--activeContent': bodyFatModal.isOpen }"
             >
-              Yağ Oranınız
+            {{ $t('health.fat.title') }}
             </span>
           </div>
           <div class="content__itemBody">
@@ -134,8 +132,7 @@
               class="content__itemDescription"
               :class="{ '--activeContent': bodyFatModal.isOpen }"
             >
-              Girmiş olduğunuz yağ oranınız (Kullanıcı tarafından girilmesi ve
-              güncellenmesi gerekmektedir.)
+            {{ $t('health.fat.text') }}
             </div>
             <div class="content__itemValue">{{ health.bodyFat }} %</div>
           </div>
@@ -177,11 +174,11 @@
             class="content__itemHeaderIcon"
             icon="fa-solid fa-circle-plus"
           />
-          <span class="content__itemTitle"> Vücut Kitle İndeksiniz </span>
+          <span class="content__itemTitle"> {{ $t('health.bmi.title') }} </span>
         </div>
         <div class="content__itemBody">
           <div class="content__itemDescription">
-            Girmiş olduğunuz veriler hesaplanarak bulunur.
+            {{ $t('health.bmi.text') }}
           </div>
           <div v-if="underWeight.stat" class="content__message">
             {{ underWeight.message }}
@@ -275,33 +272,31 @@ export default {
     underWeight() {
       return {
         stat: this.bodyMass < 18.5,
-        message: "Kilo almanız tavsiye edilir",
+        message: this.$t('health.bmi.stats.under'),
       };
     },
     normal() {
       return {
         stat: this.bodyMass > 18.5 && this.bodyMass < 24.9,
-        message: "Sağlıklı bir kilodasınız",
+        message: this.$t('health.bmi.stats.normal'),
       };
     },
     overWeight() {
       return {
         stat: this.bodyMass > 25 && this.bodyMass < 29.9,
-        message: "Sınırların üzerindesiniz kilo vermeniz tavsiye edilir",
+        message: this.$t('health.bmi.stats.over'),
       };
     },
     obese() {
       return {
         stat: this.bodyMass > 30 && this.bodyMass < 34.9,
-        message:
-          "Verilere göre obezite sınırları içerisindesiniz kilo vermeniz tavsiye edilir",
+        message: this.$t('health.bmi.stats.obese')
       };
     },
     extremlyObese() {
       return {
         stat: this.bodyMass > 35,
-        message:
-          "Sınırların çok üzerindesiniz aciliyetle kilo vermeniz gerekmektedir.",
+        message: this.$t('health.bmi.stats.extremlyObese'),
       };
     },
   },

@@ -62,9 +62,38 @@
         }
       }
     },
+    "health": {
+      "banner": "Sağlığınızı Takip Edin",
+      "title": "Verileriniz",
+      "weight": {
+        "title": "Ağırlığınız",
+        "text": "Girmiş olduğunuz vücut ağırlığınız (Kullanıcı tarafından girilmesi ve güncellenmesi gerekmektedir.)"
+      },
+      "height": {
+        "title": "Boyunuz",
+        "text": "Girmiş olduğunuz boy uzunluğunuz (Kullanıcı tarafından girilmesi ve güncellenmesi gerekmektedir.)"
+      },
+      "fat": {
+        "title": "Yağ Oranınız",
+        "text": "Girmiş olduğunuz yağ oranınız (Kullanıcı tarafından girilmesi ve güncellenmesi gerekmektedir.)"
+      },
+      "bmi": {
+        "title": "Vücut Kitle İndeksiniz",
+        "text": "Grimiş olduğunuz veriler hesaplanarak bulunur.",
+        "stats": {
+          "under": "Kilo almanız tavsiye edilir.",
+          "normal": "Sağlıklı bir kilodasınız",
+          "over": "Sınırların üzerindesiniz kilo vermeniz tavsiye edilir",
+          "obese": "Verilere göre obezite sınırları içerisindesiniz kilo vermeniz tavsiye edilir",
+          "extremlyObese": "Sınırların çok üzerindesiniz aciliyetle kilo vermeniz gerekmektedir."
+        }
+      }
+    },
     "buttons": {
       "discover": "Keşfet",
-      "contact": "İletişim"
+      "contact": "İletişim",
+      "update": "Güncelle",
+      "giveUp": "Vazgeç"
     }
   },
   "enJson": {
@@ -96,9 +125,38 @@
         }
       }
     },
+    "health": {
+      "banner": "Track Your Health",
+      "title": "Your Data",
+      "weight": {
+        "title": "Your Weight",
+        "text": "Your entered body weight (It must be entered and updated by the user.)"
+      },
+      "height": {
+        "title": "Your Height",
+        "text": "Your entered height (must be entered and updated by the user.)"
+      },
+      "fat": {
+        "title": "Body Mass Rate",
+        "text": "The oil rate you have entered (It must be entered and updated by the user.)"
+      },
+      "bmi": {
+        "title": "Your Body Mass Index",
+        "text": "The data you entered is calculated and found.",
+        "stats": {
+          "under": "It is recommended to gain weight",
+          "normal": "A healthy weight",
+          "over": "You are over the limits, it is recommended to lose weight",
+          "obese": "According to the data, you are within the limits of obesity, it is recommended to lose weight",
+          "extremlyObese": "You are far above the limits and you need to lose weight urgently."
+        }
+      }
+    },
     "buttons": {
       "discover": "Discover",
-      "contact": "Contact"
+      "contact": "Contact",
+      "update": "Güncelle",
+      "giveUp": "Vazgeç"
     }
   }
 }
