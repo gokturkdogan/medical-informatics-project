@@ -46,7 +46,7 @@
             v-model="health.weight"
           />
           <button
-            @click="updateHealth(weightModal.message)"
+            @click="updateHealth(getNotifyMessages().weightSuccess)"
             class="content__itemUpdateModalButton"
           >
             Güncelle
@@ -95,7 +95,7 @@
             v-model="health.height"
           />
           <button
-            @click="updateHealth(heightModal.message)"
+            @click="updateHealth(getNotifyMessages().heightSuccess)"
             class="content__itemUpdateModalButton"
           >
             Güncelle
@@ -144,7 +144,7 @@
             v-model="health.bodyFat"
           />
           <button
-            @click="updateHealth(bodyFatModal.message)"
+            @click="updateHealth(getNotifyMessages().fatSuccess)"
             class="content__itemUpdateModalButton"
           >
             Güncelle
@@ -211,15 +211,12 @@ export default {
     return {
       weightModal: {
         isOpen: false,
-        message: "Kilonuz başarı ile güncellenmiştir",
       },
       heightModal: {
         isOpen: false,
-        message: "Boyunuz başarı ile güncellenmiştir",
       },
       bodyFatModal: {
         isOpen: false,
-        message: "Yağ oranınız başarı ile güncellenmiştir",
       },
     };
   },
@@ -261,6 +258,14 @@ export default {
       this.closeHeightModal();
       this.closeBodyFatModal();
     },
+    getNotifyMessages() {
+      const notifyMessages = {
+        weightSuccess : this.$t('notifyMessages.weightSuccess'),
+        heightSuccess : this.$t('notifyMessages.heightSuccess'),
+        fatSuccess : this.$t('notifyMessages.fatSuccess')
+      }
+      return notifyMessages
+    }
   },
   computed: {
     health() {

@@ -94,6 +94,11 @@
       "contact": "İletişim",
       "update": "Güncelle",
       "giveUp": "Vazgeç"
+    },
+    "notifyMessages": {
+      "weightSuccess": "Kilonuz başarı ile güncellenmiştir",
+      "heightSuccess": "Boyunuz başarı ile güncellenmiştir",
+      "fatSuccess": "Yağ oranınız başarı ile güncellenmiştir"
     }
   },
   "enJson": {
@@ -157,6 +162,11 @@
       "contact": "Contact",
       "update": "Güncelle",
       "giveUp": "Vazgeç"
+    },
+    "notifyMessages": {
+      "weightSuccess": "Your weight has been updated successfully",
+      "heightSuccess": "Your height has been updated successfully",
+      "fatSuccess": "Your body mass rate has been updated successfully"
     }
   }
 }
