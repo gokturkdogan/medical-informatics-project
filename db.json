@@ -89,6 +89,21 @@
         }
       }
     },
+    "trainings": {
+      "types": {
+        "swimming": "Yüzme Antrenmanı",
+        "running": "Koşma Antrenmanı",
+        "weight": "Ağırlık Antrenmanı"
+      },
+      "kinds": {
+        "warmUp": "Isınma",
+        "fatBurning": "Yağ Yakma"
+      },
+      "locations": {
+        "inDoor": "Kapalı Ortam",
+        "outDoor": "Açık Hava"
+      }
+    },
     "buttons": {
       "discover": "Keşfet",
       "contact": "İletişim",
@@ -155,6 +170,21 @@
           "obese": "According to the data, you are within the limits of obesity, it is recommended to lose weight",
           "extremlyObese": "You are far above the limits and you need to lose weight urgently."
         }
+      }
+    },
+    "trainings": {
+      "types": {
+        "swimming": "Swimming Training",
+        "running": "Running Training",
+        "weight": "Weight Training"
+      },
+      "kinds": {
+        "warmUp": "Warm Up",
+        "fatBurning": "Fat Burning"
+      },
+      "locations": {
+        "inDoor": "Indoor",
+        "outDoor": "Outdoor"
       }
     },
     "buttons": {

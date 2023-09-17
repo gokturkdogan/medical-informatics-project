@@ -20,27 +20,35 @@
         class="trainings__image"
       />
       <div class="trainings__content">
-        <h3 class="trainings__title">{{ data.type }} Antrenmanı</h3>
+        <h3 class="trainings__title">{{ getTrainingTitles(data) }}</h3>
         <div class="trainings__header">
           <div class="trainings__desc">
-            <font-awesome-icon class="trainings__icon" icon="fa-solid fa-clock" />
+            <font-awesome-icon
+              class="trainings__icon"
+              icon="fa-solid fa-clock"
+            />
             <span class="trainings__value">{{ data.time }}</span>
           </div>
           <div class="trainings__desc">
-            <font-awesome-icon class="trainings__icon" icon="fa-solid fa-calendar" />
+            <font-awesome-icon
+              class="trainings__icon"
+              icon="fa-solid fa-calendar"
+            />
             <span class="trainings__value">{{
               data.date.split("-").reverse().join("-")
             }}</span>
           </div>
           <div class="trainings__desc">
-            <font-awesome-icon class="trainings__icon" icon="fa-solid fa-location-dot" />
-            <span class="trainings__value">{{ data.location }}</span>
+            <font-awesome-icon
+              class="trainings__icon"
+              icon="fa-solid fa-location-dot"
+            />
+            <span class="trainings__value">{{
+              getTrainingLocations(data)
+            }}</span>
           </div>
         </div>
-        <div class="trainings__exp">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et
-        </div>
+        <div class="trainings__exp" v-html="getTrainingsTexts(data)"></div>
       </div>
     </div>
   </div>
@@ -51,6 +59,49 @@ export default {
   computed: {
     trainings() {
       return this.$store.getters["training/getTrainingData"];
+    },
+    selectedLocale() {
+      return this.$i18n.locale;
+    },
+  },
+  methods: {
+    getTrainingTitles(data) {
+      if (data.type == "Ağırlık") {
+        return this.$t("trainings.types.weight");
+      } else if (data.type == "Yüzme") {
+        return this.$t("trainings.types.swimming");
+      } else {
+        return this.$t("trainings.types.running");
+      }
+    },
+    getTrainingLocations(data) {
+      if (data.location == "Kapalı Ortam") {
+        return this.$t("trainings.locations.inDoor");
+      } else {
+        return this.$t("trainings.locations.outDoor");
+      }
+    },
+    getTrainingsTypes(data) {
+      if (data.calories <= 200) {
+        return this.$t("trainings.kinds.warmUp");
+      } else {
+        return this.$t("trainings.kinds.fatBurning");
+      }
+    },
+    getTrainingsTexts(data) {
+      if (this.selectedLocale == "tr") {
+        return `Girilen verilere göre <span style="color: red; font-weight: 600">${
+          data.calories
+        } kCal</span> yakılmıştır ve bu bir <span style="color: red; font-weight: 600">${this.getTrainingsTypes(
+          data
+        )}</span> antrenmanıdır.`;
+      } else {
+        return `According to the entered data <span style="color: red; font-weight: 600">${
+          data.calories
+        } kCal</span> was burned and this is a <span style="color: red; font-weight: 600">${this.getTrainingsTypes(
+          data
+        )}</span> workout.`;
+      }
     },
   },
 };
@@ -104,7 +155,7 @@ export default {
     margin-left: 5px;
     font-size: 14px;
     color: #888;
-    letter-spacing: .4px;
+    letter-spacing: 0.4px;
   }
 
   &__exp {
