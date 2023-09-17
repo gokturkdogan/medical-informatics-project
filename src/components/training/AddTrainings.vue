@@ -114,7 +114,7 @@ export default {
   &__wrapper {
     background-color: white;
     position: absolute;
-    top: 10%;
+    top: 20%;
     padding: 30px;
     border-radius: 10px;
     width: 60%;
