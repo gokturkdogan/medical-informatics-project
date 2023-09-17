@@ -25,5 +25,14 @@ const handleChangeLocale = (event) => {
     text-transform: uppercase;
     border: 2px solid #B822DF;
     border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background-color: #B822DF;
+      color: white;
+    }
+    option {
+      background: none;
+    }
   }
 </style>
