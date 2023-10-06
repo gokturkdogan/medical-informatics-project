@@ -161,7 +161,6 @@ export default {
     width: 25%;
   }
   &__sideBar {
-    width: 100%;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
     padding: 20px 20px;
     height: fit-content;

@@ -23,7 +23,7 @@ export function setI18nLanguage(locale) {
 export async function loadLocaleMessages(locale) {
   try {
     const response = await Services.get(api[locale + 'Json']);
-    const messages = response.data
+    const messages = response.data;
     i18n.global.setLocaleMessage(locale, messages);
     return nextTick();
   } catch (error) {
@@ -34,6 +34,10 @@ export async function loadLocaleMessages(locale) {
 export default function setupI18n() {
   if (!i18n) {
     let locale = getCookie("language");
+    if (!locale || !SUPPORT_LOCALES.includes(locale)) {
+      // Eğer "language" çerezi yoksa veya desteklenmeyen bir dil ise varsayılan olarak "tr" kullanılacak.
+      locale = 'tr';
+    }
 
     i18n = createI18n({
       globalInjection: true,

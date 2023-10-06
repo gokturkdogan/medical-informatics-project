@@ -1,6 +1,7 @@
 <template>
     <div class="header">
-        <div class="header__logoArea">
+        <div class="header__area">
+            <div class="header__logoArea">
             <img src="../assets/images/logos/headerLogo.png" alt="Logo" class="header__logo">
             <span class="header__logoText">
                 Health Master
@@ -13,6 +14,7 @@
             <router-link class="header__link" to="/">{{ $t("navBar.diet") }}</router-link>
         </div>
         <LocaleSwitcher />
+        </div>
     </div>
 </template>
 <script>
@@ -31,7 +33,18 @@ import LocaleSwitcher from '../components/base/LocaleSwitcher.vue';
         align-items: center;
         background-color: #FFFFFF;
         box-shadow: 0 -6px 10px 5px #000000;
-        padding: 20px 200px;
+        padding: 20px 0;
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+
+        &__area {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            margin: auto;
+        }
 
         &__logoArea {
             display: flex;

@@ -1,0 +1,83 @@
+{
+    "navBar": {
+        "home": "anasayfa",
+        "health": "sağlık",
+        "training": "antrenman",
+        "diet": "diyet"
+      },
+      "home": {
+        "banner": {
+          "title": "Sağlığınızı Takip Edin",
+          "subTitle": "Medical Care Uygulamasına Hoşgeldiniz",
+          "text": "Uygulamanın çeşitli fonksiyonları ile vücut sağlığınızı ve antrenman programınızı takip edin"
+        },
+        "services": {
+          "title": "Hizmetler",
+          "training": {
+            "title": "Antrenman Programı",
+            "text": "Kendinize özel antrenman programı düzenleyip takibini yapıp, antrenman istatistiklerinizi takip edebilirsiniz."
+          },
+          "health": {
+            "title": "Sağlık Takibi",
+            "text": "Vücut istatistiklerinizi sisteme girerek takibini yapabilir kendinize hedefler oluşturabilirsiniz."
+          },
+          "diet": {
+            "title": "Diyet Takibi",
+            "text": "Hazırlamış olduğunuz diyet programına uyumunuzu ilgili ekranlar sayesinde takip edebilirsiniz."
+          }
+        }
+      },
+      "health": {
+        "banner": "Sağlığınızı Takip Edin",
+        "title": "Verileriniz",
+        "weight": {
+          "title": "Ağırlığınız",
+          "text": "Girmiş olduğunuz vücut ağırlığınız (Kullanıcı tarafından girilmesi ve güncellenmesi gerekmektedir.)"
+        },
+        "height": {
+          "title": "Boyunuz",
+          "text": "Girmiş olduğunuz boy uzunluğunuz (Kullanıcı tarafından girilmesi ve güncellenmesi gerekmektedir.)"
+        },
+        "fat": {
+          "title": "Yağ Oranınız",
+          "text": "Girmiş olduğunuz yağ oranınız (Kullanıcı tarafından girilmesi ve güncellenmesi gerekmektedir.)"
+        },
+        "bmi": {
+          "title": "Vücut Kitle İndeksiniz",
+          "text": "Grimiş olduğunuz veriler hesaplanarak bulunur.",
+          "stats": {
+            "under": "Kilo almanız tavsiye edilir.",
+            "normal": "Sağlıklı bir kilodasınız",
+            "over": "Sınırların üzerindesiniz kilo vermeniz tavsiye edilir",
+            "obese": "Verilere göre obezite sınırları içerisindesiniz kilo vermeniz tavsiye edilir",
+            "extremlyObese": "Sınırların çok üzerindesiniz aciliyetle kilo vermeniz gerekmektedir."
+          }
+        }
+      },
+      "trainings": {
+        "types": {
+          "swimming": "Yüzme Antrenmanı",
+          "running": "Koşma Antrenmanı",
+          "weight": "Ağırlık Antrenmanı"
+        },
+        "kinds": {
+          "warmUp": "Isınma",
+          "fatBurning": "Yağ Yakma"
+        },
+        "locations": {
+          "inDoor": "Kapalı Ortam",
+          "outDoor": "Açık Hava"
+        }
+      },
+      "buttons": {
+        "discover": "Keşfet",
+        "contact": "İletişim",
+        "update": "Güncelle",
+        "giveUp": "Vazgeç"
+      },
+      "notifyMessages": {
+        "weightSuccess": "Kilonuz başarı ile güncellenmiştir",
+        "heightSuccess": "Boyunuz başarı ile güncellenmiştir",
+        "fatSuccess": "Yağ oranınız başarı ile güncellenmiştir"
+      }
+}
